@@ -12,6 +12,8 @@ public class ReadFile {
                 data  = reader.read();
             }
 
+            System.out.println();
+
             reader.close();
         } catch (IOException e) {
             System.out.println("An error has occurred while reading this file.");
