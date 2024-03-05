@@ -11,7 +11,8 @@ public class Menu {
             System.out.println("-----------------------------------------");
             System.out.println("1. Write A File");
             System.out.println("2. Read A File");
-            System.out.println("3. Exit");
+            System.out.println("3. Update A File");
+            System.out.println("4. Exit");
             System.out.println("-----------------------------------------");
             System.out.print("Enter your choice : ");
 
@@ -31,13 +32,16 @@ public class Menu {
                     readFile();
                     break;
                 case 3:
+                    updateFile();
+                    break;
+                case 4:
                     System.out.println("Thank you for using our program.");
                     System.out.println("Exiting program...");
                     break;
                 default:
                     System.out.println("Invalid choice.");
             }
-        } while (choice != 3);
+        } while (choice != 4);
     }
 
     private void writeFile() {
@@ -55,5 +59,16 @@ public class Menu {
         System.out.print("Enter file name: ");
         String fileName = scanner.next();
         ReadFile.readFile(fileName);
+    }
+
+    private void updateFile() {
+        System.out.print("Enter file name: ");
+        String fileName = scanner.next();
+        scanner.nextLine();
+
+        System.out.print("Enter content: ");
+        String content = scanner.nextLine();
+
+        WriteFile.updateFile(fileName, content);
     }
 }
