@@ -7,12 +7,14 @@ public class ReadFile {
             FileReader reader = new FileReader(fileName + ".txt");
             int data  = reader.read();
 
+            System.out.println();
+
             while(data != -1) {
                 System.out.print((char) data);
                 data  = reader.read();
             }
 
-            System.out.println();
+            System.out.println("\n");
 
             reader.close();
         } catch (IOException e) {

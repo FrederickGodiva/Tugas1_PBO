@@ -1,10 +1,11 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
 
     public void displayMenu() {
-        int choice;
+        int choice = 0;
         do {
             System.out.println("Welcome to Our Simple File Reader Program");
             System.out.println("-----------------------------------------");
@@ -13,7 +14,14 @@ public class Menu {
             System.out.println("3. Exit");
             System.out.println("-----------------------------------------");
             System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
+
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input.");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (choice) {
                 case 1:
@@ -23,6 +31,7 @@ public class Menu {
                     readFile();
                     break;
                 case 3:
+                    System.out.println("Thank you for using our program.");
                     System.out.println("Exiting program...");
                     break;
                 default:
